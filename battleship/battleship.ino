@@ -1,3 +1,39 @@
+/*
+  ============================================
+  Arduino Battleship Game - LED Grid Edition
+  ============================================
+
+  Description:
+    A simplified Battleship-style game implemented on an 8x8 NeoPixel LED grid,
+    controlled with a joystick and displayed with an I2C LCD screen. Players move
+    a cursor around the grid to shoot ships of varying sizes. Game ends when all 
+    ships are destroyed or ammo runs out. A final score is calculated based on
+    time, remaining ammo, and kills.
+
+  Controls:
+    - Joystick (X/Y) to move the targeting cursor
+    - Joystick button to fire
+    - LCD shows game info, feedback, and final score
+
+  Hardware Required:
+    - Arduino Uno (or compatible)
+    - 8x8 NeoPixel Matrix (WS2812B)
+    - Joystick module (connected to A0, A1 and digital pin 2)
+    - I2C LCD Display (16x2, typically address 0x27)
+    - 5V Power Supply (especially if running full brightness on NeoPixels)
+
+  Pin Assignments:
+    - VRX_PIN: A1  -> Joystick X-axis
+    - VRY_PIN: A0  -> Joystick Y-axis
+    - BTN_PIN: D2  -> Joystick button
+    - LED_PIN: D6  -> NeoPixel data input
+
+  Notes:
+    - Random seed initialized via analogRead on an unused pin for varied ship layout
+    - Game supports ships of size 2–4 placed randomly without overlap
+*/
+
+
 // ========== Libraries ==========
 #include <Adafruit_NeoPixel.h>
 #include <LiquidCrystal_I2C.h>
