@@ -189,68 +189,55 @@ void setupTargets() {
 void updateLeds()
 {
   strip.clear();
-  for (int row = 0; row < 8; row++)
-    {
-      for (int column = 0; column < 8; column++)
-        {
-          if ((row % 2) == 0)  // -------------------- even rows
-          {
-            if (cursorX == column && cursorY == row)
-            {
-              if (leds[row][column] == 2)  // 2 = hit + cursor -> orange
-              {
+  for (int row = 0; row < 8; row++) {
+      for (int column = 0; column < 8; column++) {
+          // Even rows
+          if ((row % 2) == 0) {
+            if (cursorX == column && cursorY == row) {
+              if (leds[row][column] == 2) {
+                // 2 = hit + cursor -> orange
                 strip.setPixelColor(row * 8 + column, strip.Color(brightness + 10, brightness, 0));
-              }
-              else if (leds[row][column] == 0)  // 3 = missed + cursor -> green
-              {
+              } else if (leds[row][column] == 0) {
+                // 3 = missed + cursor -> green
                 strip.setPixelColor(row * 8 + column, strip.Color(0, brightness, 0));
-                
-              }
-              else  // cursor -> yellow
-              {
+              } else {
+                // cursor -> yellow
                 strip.setPixelColor(row * 8 + column, strip.Color(brightness, brightness, 0));
               }
-            }
-            else if (leds[row][column] == 0)  // 0 = missed -> black
-            {
+            } else if (leds[row][column] == 0) {
+              // 0 = missed -> black
               strip.setPixelColor(row * 8 + column, strip.Color(0, 0, 0));
             }
-            else if (leds[row][column] == 1)  // 1 = empty -> blue
-            {
+            else if (leds[row][column] == 1) {
+              // 1 = empty -> blue
               strip.setPixelColor(row * 8 + column, strip.Color(0, 0, brightness));
             }
-            else if (leds[row][column] == 2)  // 2 = hit -> red
-            {
+            else if (leds[row][column] == 2) {
+              // 2 = hit -> red
               strip.setPixelColor(row * 8 + column, strip.Color(brightness, 0, 0));
             }
-          }
-          else  // ------------------------ odd rows
-          {
-            if (cursorX == column && cursorY == row)
-            {
-              if (leds[row][column] == 2)  // 2 = hit + cursor -> orange
-              {
+          } else {
+            // ------------------------ odd rows
+            if (cursorX == column && cursorY == row) {
+              if (leds[row][column] == 2) {
+                // 2 = hit + cursor -> orange
                 strip.setPixelColor(row * 8 + (7 - column), strip.Color(brightness + 10, brightness, 0));
               }
-              else if (leds[row][column] == 0)  // 0 = missed + cursor -> green
-              {
+              else if (leds[row][column] == 0) {
+                // 3 = missed + cursor -> green
                 strip.setPixelColor(row * 8 + (7 - column), strip.Color(0, brightness, 0));
               }
-              else  // cursor -> yellow
-              {
+              else {
+                // cursor -> yellow
                 strip.setPixelColor(row * 8 + (7 - column), strip.Color(brightness, brightness, 0));
               }
-            }
-            else if (leds[row][column] == 0)
-              {
+            } else if (leds[row][column] == 0) {
                 strip.setPixelColor(row * 8 + (7 - column), strip.Color(0, 0, 0));
-              }
-            else if (leds[row][column] == 1)  // 1 = empty -> blue
-            {
+              } else if (leds[row][column] == 1) {
+              // 1 = empty -> blue
               strip.setPixelColor(row * 8 + (7 - column), strip.Color(0, 0, brightness));
-            }
-            else if (leds[row][column] == 2)  // 2 = hit -> red
-            {
+            } else if (leds[row][column] == 2) {
+              // 2 = hit -> red
               strip.setPixelColor(row * 8 + (7 - column), strip.Color(brightness, 0, 0));
             }
           }
