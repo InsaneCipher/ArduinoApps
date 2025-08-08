@@ -103,7 +103,7 @@ void initGame() {
 void startLCD() {
   lcd.clear();
   lcd.setCursor(0, 0);
-  lcd.print("Bomb Game");
+  lcd.print("Bomb Sweeper");
   lcd.setCursor(0, 1);
   lcd.print("Click to Start!");
 }
